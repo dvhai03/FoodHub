@@ -1,0 +1,29 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/MPLUS1p-Medium.ttf",
+      "sha1": "0bd0c4d7a8015630e944ce52199060ab58654905"
+    },
+    {
+      "path": "src/assets/fonts/PhosphateInline.ttf",
+      "sha1": "a09fb012854b32c8b7008823425f6e976e6633ff"
+    },
+    {
+      "path": "src/assets/fonts/PhosphateSolid.ttf",
+      "sha1": "9a586cc6f60a07c83264fb16948a8cb39f3b600a"
+    },
+    {
+      "path": "src/assets/fonts/Roboto-Black.ttf",
+      "sha1": "77f9fac05293485120799e83c16225a1af961f25"
+    },
+    {
+      "path": "src/assets/fonts/Roboto-Medium.ttf",
+      "sha1": "0ee6b0bd5ff6fe30e4ef720a08e38656dc60985f"
+    },
+    {
+      "path": "src/assets/fonts/Roboto-Regular.ttf",
+      "sha1": "ce57fc6c6705cb20661ac325fac5d4598b6efbca"
+    }
+  ]
+}

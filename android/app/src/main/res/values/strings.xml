@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FoodHub</string>
+    <string name="facebook_app_id">1043863207240544</string>
+    <string name="facebook_client_token">72da13d4107a4bfa366bc5414acb39b0</string>
 </resources>
