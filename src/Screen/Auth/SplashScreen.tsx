@@ -5,6 +5,7 @@ import {useThemeToggle} from '../../hook/UseTheme';
 import AppIcon from '../../component/Icon/AppIcon';
 import {FFilled} from '../../assets/icon/FFilled';
 import AppText from '../../component/Text/AppText';
+import {appSize} from '../../config/AppConstant';
 
 const SplashScreen = () => {
   const {theme} = useThemeToggle();
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
   },
   box_logo: {
     borderRadius: 24,
-    padding: 16,
+    padding: appSize(16),
   },
   view_name_app: {
     flexDirection: 'row',

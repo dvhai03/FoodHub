@@ -5,6 +5,7 @@ import {useThemeToggle} from '../../hook/UseTheme';
 import Goback from '../../component/Button/Goback';
 import AppText from '../../component/Text/AppText';
 import {AppOTP} from '../../component/AppOtp/AppOtp';
+import {appSize} from '../../config/AppConstant';
 
 const OtpScreen = () => {
   const {theme} = useThemeToggle();
@@ -30,7 +31,7 @@ const OtpScreen = () => {
       <AppText
         textStyle="Body_Medium"
         color={'rgba(108, 111, 115, 1)'}
-        style={{marginVertical: 12}}>
+        style={{marginVertical: appSize(12)}}>
         Please enter your PIN (4 Digits)
       </AppText>
       <AppOTP
@@ -54,7 +55,7 @@ export default OtpScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 138,
-    paddingHorizontal: 25,
+    paddingTop: appSize(138),
+    paddingHorizontal: appSize(25),
   },
 });

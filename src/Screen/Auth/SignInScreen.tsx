@@ -10,6 +10,7 @@ import AppText from '../../component/Text/AppText';
 import AppTextInput from '../../component/TextInput/AppTextInput';
 import Social from '../../component/Social/Social';
 import Goback from '../../component/Button/Goback';
+import {appSize} from '../../config/AppConstant';
 
 const SignInScreen = () => {
   const navigation = useNavigation<StackNavigationProp<AuthParams>>();
@@ -23,25 +24,26 @@ const SignInScreen = () => {
       <AppTextInput
         placeholder="Your name"
         lable="Full name"
-        style={{marginTop: 12}}
+        style={{marginTop: appSize(12)}}
       />
       <AppTextInput
         placeholder="Your email or phone"
         lable="Email"
-        style={{marginVertical: 30}}
+        style={{marginVertical: appSize(30)}}
       />
       <AppTextInput
         placeholder="Password"
         lable="Password"
-        style={{marginBottom: 40}}
+        style={{marginBottom: appSize(40)}}
         secureTextEntry
       />
-      <View style={{paddingHorizontal: 40, marginVertical: 10}}>
+      <View
+        style={{paddingHorizontal: appSize(40), marginVertical: appSize(10)}}>
         <AppButton
           backgroundColor={theme.colors.Primary}
           borderRadius={29}
           onPress={() => navigation.navigate('OtpScreen')}
-          style={{paddingVertical: 18}}>
+          style={{paddingVertical: appSize(18)}}>
           <AppText textStyle="Title_Medium" color={theme.colors.On_Primary}>
             Sign Up
           </AppText>
@@ -71,8 +73,8 @@ export default SignInScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 101,
-    paddingHorizontal: 25,
+    paddingTop: appSize(101),
+    paddingHorizontal: appSize(25),
   },
 
   footer: {

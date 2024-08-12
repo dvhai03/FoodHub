@@ -17,6 +17,7 @@ export type CustomColors = {
   On_Tertiary_Container: string;
   Surface_Dim: string;
   Surface: string;
+  Surface_variant: string;
   Surface_Bright: string;
   Inverse_Surface: string;
   Inverse_On_Surface: string;
@@ -54,6 +55,7 @@ export const customColors: CustomColors = {
   On_Tertiary_Container: 'rgba(40, 19, 46, 1)',
   Surface_Dim: 'rgba(217, 217, 224, 1)',
   Surface: 'rgba(249, 249, 255, 1)',
+  Surface_variant: 'rgba(224, 226, 236, 1)',
   Surface_Bright: 'rgba(249, 249, 255, 1)',
   Inverse_Surface: 'rgba(46, 48, 54, 1)',
   Inverse_On_Surface: 'rgba(240, 240, 247, 1)',

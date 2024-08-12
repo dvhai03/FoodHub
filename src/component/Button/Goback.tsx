@@ -6,16 +6,16 @@ import AppIcon from '../Icon/AppIcon';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {AuthParams} from '../../navigation/params';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useThemeToggle} from '../../hook/UseTheme';
 import {FFilled} from '../../assets/icon/FFilled';
+import {appSize} from '../../config/AppConstant';
 
 const Goback = () => {
   const navigation = useNavigation<StackNavigationProp<AuthParams>>();
-  const {top} = useSafeAreaInsets();
+
   const {theme} = useThemeToggle();
   return (
-    <View style={[styles.view_skip, {paddingTop: top}]}>
+    <View style={[styles.view_skip]}>
       <AppButton
         onPress={() => navigation.goBack()}
         backgroundColor={theme.colors.Surface}
@@ -37,8 +37,9 @@ export default Goback;
 const styles = StyleSheet.create({
   view_skip: {
     position: 'absolute',
-    top: 0,
-    left: 25,
+    top: appSize(37),
+    left: appSize(30),
+    zIndex: 2,
   },
   box_shadow: {
     shadowOffset: {

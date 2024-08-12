@@ -1,11 +1,16 @@
 /* eslint-disable prettier/prettier */
-import React, {ReactNode} from 'react';
+import React, {ReactNode, useEffect, useState} from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {useThemeToggle} from '../hook/UseTheme';
 import AppText from '../component/Text/AppText';
 import AppIcon from '../component/Icon/AppIcon';
 import {FFilled} from '../assets/icon/FFilled';
 import AppCustomButton from '../component/Button/CustomButton';
+import {useDrawerStatus} from '@react-navigation/drawer';
+import AppIconButton from '../component/Button/IconButton';
+import {useDispatch} from 'react-redux';
+import {StatusLogin} from '../redux/loginSlice';
+import {appSize} from '../config/AppConstant';
 type menuType = {
   id: number;
   text: string;
@@ -13,8 +18,18 @@ type menuType = {
   onPress: () => void;
 };
 const DrawerContentHome = () => {
-  const {theme} = useThemeToggle();
-
+  const dispatch = useDispatch();
+  const {theme, toggleTheme} = useThemeToggle();
+  const isDrawerVisible = useDrawerStatus();
+  const [contentVisible, setContentVisible] = useState(false);
+  const [isTheme] = useState(false);
+  useEffect(() => {
+    if (isDrawerVisible == 'open') {
+      setContentVisible(true);
+    } else {
+      setContentVisible(false);
+    }
+  }, [isDrawerVisible]);
   const menu: menuType[] = [
     {
       id: 1,
@@ -79,6 +94,9 @@ const DrawerContentHome = () => {
       },
     },
   ];
+  const onLogout = () => {
+    dispatch(StatusLogin(false));
+  };
   return (
     <View style={[styles.container, {backgroundColor: theme.colors.Surface}]}>
       <Image
@@ -117,7 +135,8 @@ const DrawerContentHome = () => {
           type
           icon="Logout_icon"
           size={18}
-          icon_color={theme.colors.Primary}>
+          icon_color={theme.colors.Primary}
+          onPress={onLogout}>
           <AppText
             textStyle="Body_Large"
             color={theme.colors.On_Primary}
@@ -126,6 +145,29 @@ const DrawerContentHome = () => {
           </AppText>
         </AppCustomButton>
       </View>
+      {contentVisible && (
+        <View
+          style={[
+            styles.edit_theme,
+            {
+              backgroundColor: theme.colors.Primary_Container,
+            },
+          ]}>
+          <AppIconButton
+            icon="Moon_icon"
+            icon_color="red"
+            backgroundColor={isTheme ? theme.colors.Primary : 'transparent'}
+            onPress={toggleTheme}
+          />
+          <AppIconButton
+            icon="Sun_icon"
+            icon_color="red"
+            style={{marginHorizontal: 5}}
+            backgroundColor={!isTheme ? theme.colors.Primary : 'transparent'}
+          />
+          <AppIconButton icon="Auto_icon" icon_color="red" />
+        </View>
+      )}
     </View>
   );
 };
@@ -150,19 +192,29 @@ const ButtonComponent = ({item, index}: {item: menuType; index: number}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingLeft: 26,
-    paddingTop: 36,
+    zIndex: 1,
+    paddingLeft: appSize(26),
+    paddingTop: appSize(36),
   },
   button: {
     flexDirection: 'row',
   },
   button_logout: {
-    padding: 7,
+    padding: appSize(7),
     width: 'auto',
   },
   view_logout: {
     flex: 1,
     justifyContent: 'flex-end',
-    marginBottom: 20,
+    alignItems: 'flex-start',
+    marginBottom: appSize(20),
+  },
+  edit_theme: {
+    position: 'absolute',
+    right: appSize(-120),
+    flexDirection: 'row',
+    marginTop: appSize(36),
+    padding: appSize(5),
+    borderRadius: 30,
   },
 });

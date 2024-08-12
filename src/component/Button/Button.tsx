@@ -53,8 +53,6 @@ export default function AppButton({
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
     alignItems: 'center',
-    paddingVertical: 8,
   },
 });

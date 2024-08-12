@@ -10,6 +10,8 @@ export type ParamsRootNav = {
   CarScreen: undefined;
   StartScreen: undefined;
   NotificationsScreen: undefined;
+  RestaurantDetailsScreen: undefined;
+  DishDetailsScreen: undefined;
 };
 export type AuthParams = {
   LoginScreen: undefined;

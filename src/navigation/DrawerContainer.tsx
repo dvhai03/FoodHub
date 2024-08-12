@@ -12,13 +12,11 @@ const DrawerContainer = ({children, style}: DrawerContainerProps) => {
   const drawerProgress = useDrawerProgress();
 
   const viewStyle = useAnimatedStyle(() => {
-    const translateX = interpolate(drawerProgress.value, [0, 1], [0, 200]); // Adjust 200 to desired max translation
-    const scale = interpolate(drawerProgress.value, [0, 1], [1, 0.8]); // Adjust scale as needed
-    const borderRadius = interpolate(drawerProgress.value, [0, 1], [0, 20]); // Adjust 20 to desired max border radius
+    const translateX = interpolate(drawerProgress.value, [0, 0.98], [0, 200]); // Adjust 200 to desired max translation
+    const scale = interpolate(drawerProgress.value, [0, 0.8], [1, 0.8]); // Adjust scale as needed
 
     return {
       transform: [{translateX}, {scale}],
-      borderRadius: borderRadius,
     };
   });
   return (

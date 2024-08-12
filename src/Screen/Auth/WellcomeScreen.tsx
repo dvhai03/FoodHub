@@ -14,6 +14,7 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {AuthParams} from '../../navigation/params';
 import Social from '../../component/Social/Social';
+import {appSize} from '../../config/AppConstant';
 
 const WellcomeScreen = () => {
   const navigation = useNavigation<StackNavigationProp<AuthParams>>();
@@ -89,14 +90,14 @@ export default WellcomeScreen;
 
 const styles = StyleSheet.create({
   view_content: {
-    marginHorizontal: 30,
-    paddingTop: 140,
+    marginHorizontal: appSize(30),
+    paddingTop: appSize(140),
   },
   box_signIn: {
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: 10,
+    marginHorizontal: appSize(10),
   },
   line: {
     flex: 1,
@@ -111,6 +112,6 @@ const styles = StyleSheet.create({
   view_skip: {
     position: 'absolute',
     top: 0,
-    right: 30,
+    right: appSize(30),
   },
 });

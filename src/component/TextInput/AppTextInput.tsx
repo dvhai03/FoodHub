@@ -16,6 +16,7 @@ import AppText from '../Text/AppText';
 import {CustomTheme} from '../../theme/CustomTheme';
 import AppIcon from '../Icon/AppIcon';
 import {FFilled} from '../../assets/icon/FFilled';
+import {appSize} from '../../config/AppConstant';
 
 interface CustomTextInputProps extends TextInputProps {
   placeholder?: string;
@@ -43,7 +44,7 @@ const AppTextInput: React.FC<CustomTextInputProps> = ({
         <AppText
           textStyle="Body_Large"
           color={theme.colors.On_BackGround}
-          style={{marginLeft: 2, marginBottom: 4}}>
+          style={{marginLeft: appSize(2), marginBottom: appSize(4)}}>
           {lable}
         </AppText>
       )}
@@ -80,8 +81,8 @@ const createStyles = (theme: CustomTheme, isFocus: boolean) => {
       top: '30%',
     },
     input: {
-      paddingVertical: 10,
-      paddingHorizontal: 15,
+      paddingVertical: appSize(10),
+      paddingHorizontal: appSize(15),
       borderRadius: 10,
       shadowOffset: {width: 0, height: 2},
       shadowOpacity: 0.2,

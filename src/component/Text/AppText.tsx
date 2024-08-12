@@ -1,13 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {Text, TextStyle} from 'react-native';
+import {StyleProp, Text, TextStyle} from 'react-native';
 import {styleText} from '../../theme/StyleText';
 interface AppText {
   textStyle?: keyof typeof styleText;
   color?: string;
   children: React.ReactNode;
   textAlign?: 'center' | 'left' | 'right' | 'auto';
-  style?: TextStyle;
+  style?: StyleProp<TextStyle>;
   numberOfLines?: number;
 }
 

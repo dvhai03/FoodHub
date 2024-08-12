@@ -1,11 +1,9 @@
 /* eslint-disable prettier/prettier */
-import {StyleSheet, View} from 'react-native';
+import {View} from 'react-native';
 import React, {ReactNode} from 'react';
 import {Provider} from 'react-redux';
-import {PaperProvider} from 'react-native-paper';
 import {I18nextProvider} from 'react-i18next';
 import {store} from '../redux/store';
-import {useThemeToggle} from '../hook/UseTheme';
 import i18n from '../languages/i18n';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {
@@ -14,6 +12,7 @@ import {
 } from '@react-navigation/native';
 import {ParamsRootNav} from '../navigation/params';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {ThemeProvider} from './ThemeContext';
 type Props = {
   children: ReactNode;
   onReady?: () => void;
@@ -21,11 +20,10 @@ type Props = {
 export const navigationRef =
   React.createRef<NavigationContainerRef<ParamsRootNav>>();
 export default function AppProvider(props: Props) {
-  const {theme} = useThemeToggle();
   return (
     <Provider store={store}>
-      <PaperProvider theme={theme}>
-        <SafeAreaProvider style={{backgroundColor: theme.colors.Surface}}>
+      <ThemeProvider>
+        <SafeAreaProvider>
           <View style={{flex: 1}}>
             <NavigationContainer ref={navigationRef}>
               <GestureHandlerRootView style={{flex: 1}}>
@@ -34,7 +32,7 @@ export default function AppProvider(props: Props) {
             </NavigationContainer>
           </View>
         </SafeAreaProvider>
-      </PaperProvider>
+      </ThemeProvider>
     </Provider>
   );
 }

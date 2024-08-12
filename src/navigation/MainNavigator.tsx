@@ -16,6 +16,8 @@ import MyTabbar from './MyTabbar';
 import {createStackNavigator} from '@react-navigation/stack';
 import DrawerContainer from './DrawerContainer';
 import {useThemeToggle} from '../hook/UseTheme';
+import RestaurantDetailsScreen from '../Screen/Home/RestaurantDetailsScreen';
+import DishDetailsScreen from '../Screen/Home/DishDetailsScreen';
 
 const RenderWrapDrawer = () => (
   <DrawerContainer
@@ -29,6 +31,7 @@ const RenderWrapDrawer = () => (
 const Drawer = createDrawerNavigator<ParamsRootNav>();
 const DrawerNavigation = () => {
   const {theme} = useThemeToggle();
+
   return (
     <Drawer.Navigator
       screenOptions={{
@@ -37,7 +40,7 @@ const DrawerNavigation = () => {
         headerStyle: {backgroundColor: 'white'},
         headerShown: false,
         overlayColor: 'transparent',
-        drawerStyle: {width: '60%'},
+        drawerStyle: {width: '66%', zIndex: 1},
         sceneContainerStyle: {backgroundColor: theme.colors.Surface},
       }}
       drawerContent={DrawerContentHome}>
@@ -70,6 +73,11 @@ const MainNavigator = () => {
         headerShown: false,
       }}>
       <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />
+      <Stack.Screen
+        name="RestaurantDetailsScreen"
+        component={RestaurantDetailsScreen}
+      />
+      <Stack.Screen name="DishDetailsScreen" component={DishDetailsScreen} />
     </Stack.Navigator>
   );
 };

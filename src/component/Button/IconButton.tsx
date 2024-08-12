@@ -1,43 +1,43 @@
 /* eslint-disable prettier/prettier */
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {StyleProp, StyleSheet, TouchableOpacity, ViewStyle} from 'react-native';
 import React from 'react';
-
-import {useThemeToggle} from '../../hook/UseTheme';
+import {FFilled} from '../../assets/icon/FFilled';
+import AppIcon from '../Icon/AppIcon';
 
 type CustomButtonProps = {
   backgroundColor?: string;
-
+  icon: keyof typeof FFilled;
   onPress?: () => void;
+  size?: number;
+  icon_color?: string;
   disable?: boolean;
-  children: React.ReactNode;
+  style?: StyleProp<ViewStyle>;
 };
 
 export default function AppIconButton({
   backgroundColor,
-  children,
+  icon,
+  icon_color,
+  size = 24,
   onPress = () => {},
   disable = false,
+  style,
 }: CustomButtonProps) {
-  const {theme} = useThemeToggle();
-  backgroundColor = theme.colors.Surface;
   return (
     <TouchableOpacity
       disabled={disable}
       onPress={onPress}
-      style={[styles.container, {backgroundColor: backgroundColor}]}>
-      {children}
+      style={[styles.container, {backgroundColor: backgroundColor}, style]}>
+      <AppIcon icon={FFilled[icon]} size={size} iconColor={icon_color} />
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 8,
-  },
-  button: {
-    height: 48,
-    borderRadius: 30,
+    padding: 3,
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: 100,
   },
 });

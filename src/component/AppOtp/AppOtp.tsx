@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import {useThemeToggle} from '../../hook/UseTheme';
 import {CustomTheme} from '../../theme/CustomTheme';
+import {appSize} from '../../config/AppConstant';
 
 type OTPInputProps = {
   length: number;
@@ -115,11 +116,11 @@ const createStyles = (
     container: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      marginBottom: 25,
+      marginBottom: appSize(25),
     },
     input: {
-      width: 60,
-      height: 60,
+      width: appSize(60),
+      height: appSize(60),
       borderRadius: 10,
       shadowOffset: {width: 0, height: 2},
       shadowOpacity: 0.2,

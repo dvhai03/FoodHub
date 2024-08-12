@@ -12,6 +12,7 @@ import {AuthParams} from '../../navigation/params';
 import Goback from '../../component/Button/Goback';
 import {useDispatch} from 'react-redux';
 import {StatusLogin} from '../../redux/loginSlice';
+import {appSize} from '../../config/AppConstant';
 
 const LoginScreen = () => {
   const dispatch = useDispatch();
@@ -35,12 +36,12 @@ const LoginScreen = () => {
       <AppTextInput
         placeholder="Your email or phone"
         lable="Email"
-        style={{marginVertical: 19}}
+        style={{marginVertical: appSize(19)}}
       />
       <AppTextInput
         placeholder="Password"
         lable="Password"
-        style={{marginTop: 11, marginBottom: 40}}
+        style={{marginTop: appSize(11), marginBottom: appSize(40)}}
         secureTextEntry
       />
       <TouchableOpacity onPress={() => navigation.navigate('ForgotPassScreen')}>
@@ -52,12 +53,13 @@ const LoginScreen = () => {
         </AppText>
       </TouchableOpacity>
 
-      <View style={{paddingHorizontal: 40, marginVertical: 20}}>
+      <View
+        style={{paddingHorizontal: appSize(40), marginVertical: appSize(20)}}>
         <AppButton
           onPress={onLogin}
           backgroundColor={theme.colors.Primary}
           borderRadius={29}
-          style={{paddingVertical: 18}}>
+          style={{paddingVertical: appSize(18)}}>
           <AppText textStyle="Title_Medium" color={theme.colors.On_Primary}>
             Login
           </AppText>
@@ -87,8 +89,8 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 150,
-    paddingHorizontal: 25,
+    paddingTop: appSize(150),
+    paddingHorizontal: appSize(25),
   },
 
   footer: {

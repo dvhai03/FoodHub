@@ -1,18 +1,8 @@
 /* eslint-disable prettier/prettier */
-import {useState} from 'react';
-import {darkTheme, lightTheme} from '../theme/CustomTheme';
+import {useThemeContext} from '../context/ThemeContext';
 
-interface UseThemeToggleResult {
-  isDarkTheme: boolean;
-  theme: typeof lightTheme;
-  toggleTheme: () => void;
-}
-export const useThemeToggle = (): UseThemeToggleResult => {
-  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false);
-  const toggleTheme = () => {
-    setIsDarkTheme(prevState => !prevState);
-  };
-  const theme = isDarkTheme ? darkTheme : lightTheme;
+export const useThemeToggle = () => {
+  const {isDarkTheme, theme, toggleTheme} = useThemeContext();
 
   return {
     isDarkTheme,

@@ -12,6 +12,7 @@ import AppText from '../component/Text/AppText';
 import AppIcon from '../component/Icon/AppIcon';
 import {FFilled} from '../assets/icon/FFilled';
 import {useThemeToggle} from '../hook/UseTheme';
+import {appSize} from '../config/AppConstant';
 type Props = {
   state: any;
   descriptors: any;
@@ -145,7 +146,7 @@ export default function MyTabbar({state, descriptors, navigation}: Props) {
               onPress={onPress}
               style={[
                 isFocused ? styles.isFocused : styles.unFocused,
-                {padding: 20},
+                {padding: appSize(20)},
               ]}>
               {isFocused ? (
                 <View
@@ -158,7 +159,7 @@ export default function MyTabbar({state, descriptors, navigation}: Props) {
                   <AppText
                     textStyle="Body_Large"
                     color={isFocused && theme.colors.Primary}
-                    style={{marginLeft: 10}}>
+                    style={{marginLeft: appSize(10)}}>
                     {tabIcons[index].text}
                   </AppText>
                 </View>
@@ -185,7 +186,7 @@ const styles = StyleSheet.create({
     },
     zIndex: 1,
     elevation: 10,
-    paddingHorizontal: 4,
+    paddingHorizontal: appSize(4),
   },
   isFocused: {
     justifyContent: 'center',

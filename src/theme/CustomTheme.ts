@@ -32,6 +32,7 @@ export const darkTheme: CustomTheme = {
     On_Tertiary_Container: 'rgba(249, 216, 253, 1)',
     Surface_Dim: 'rgba(17, 19, 24, 1)',
     Surface: 'rgba(17, 19, 24, 1)',
+    Surface_variant: 'rgba(68, 71, 78, 1)',
     Surface_Bright: 'rgba(55, 57, 62, 1)',
     Inverse_Surface: 'rgba(226, 226, 233, 1)',
     Inverse_On_Surface: 'rgba(46, 48, 54, 1)',
@@ -46,7 +47,7 @@ export const darkTheme: CustomTheme = {
     Outline: 'rgba(142, 144, 153, 1)',
     Outline_Variant: 'rgba(68, 71, 78, 1)',
     Scrim: 'rgba(0, 0, 0, 1)',
-    Shadow: 'rgba(0, 0, 0, 1)',
+    Shadow: 'rgba(255, 255, 255, 0.15)',
     On_BackGround: 'rgba(226, 226, 233, 1)',
   },
 };
